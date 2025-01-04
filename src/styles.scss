@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@import './fonts.scss';
+html, body{
+    margin: 0;
+    font-family: 'Orbitron';
+    min-height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(40deg, #1c1c1c 40%, #460808);
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+p{
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
