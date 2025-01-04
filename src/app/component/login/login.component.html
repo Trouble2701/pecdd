@@ -1,1 +1,11 @@
-<p>login works!</p>
+<div class="loginfield">
+    <div class="fields">
+        <input type="text" placeholder="Login Name" [(ngModel)]="loginData.loginname">
+        <input type="password" placeholder="Passwort" [(ngModel)]="loginData.password">
+        <button (click)="login()" class="login-button">Login</button>
+    </div>
+    <div class="login-links">
+        <a href="#register">Registrieren</a>
+        <a href="#pwforgot">Passwort vergessen?</a>
+    </div>
+</div>
