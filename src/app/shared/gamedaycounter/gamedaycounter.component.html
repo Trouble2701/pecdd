@@ -1,1 +1,9 @@
-<p>gamedaycounter works!</p>
+<div class="rotate-box" (click)="openGameDay()" #rotateBox>
+    <p  class="gameday-title">{{gameTitle}}</p>
+    <p class="location">{{location}}</p>
+    <div class="gameday-content">
+        <p>{{countDown}}</p>
+        <p>{{time}}</p>
+        <p>{{date}}</p>
+    </div>
+</div>
