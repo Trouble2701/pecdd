@@ -1,13 +1,13 @@
 <div class="header">
     <div class="left-container">Logo/Name</div>
     <div class="middle-container">
-        <div class="rotate-box" (click)="openGameDay()">
+        <div class="rotate-box" (click)="openGameDay()" #rotateBox>
             <p  class="gameday-title">Next GameDay</p>
-            <p class="location">Gotcha Zone</p>
+            <p class="location">{{location}}</p>
             <div class="gameday-content">
-                <p>{{days}}{{hours}}{{minutes}}{{seconds}}</p>
-                <p>21:00 - 01:00</p>
-                <p>18.01.2025</p>
+                <p>{{countDown}}</p>
+                <p>{{time}}</p>
+                <p>{{date}}</p>
             </div>
         </div>
     </div>

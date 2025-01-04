@@ -33,6 +33,7 @@
         top: 11px;
         left: 50%;
         transform: translateX(-50%);
+        cursor: pointer;
 
         .rotate-box {
             width: 100%;
@@ -51,6 +52,7 @@
                 right: 10px;
                 color: white;
                 font-size: 16px;
+                text-shadow: 3px 4px 0px rgb(156 6 6 / 70%);
             }
 
             .location{
@@ -60,6 +62,7 @@
                 color: white;
                 font-size: 16px;
                 transform: rotate(-90deg);
+                text-shadow: 3px 4px 0px rgb(156 6 6 / 70%);
             }
 
             .gameday-content{
