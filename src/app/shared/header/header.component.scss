@@ -16,7 +16,7 @@
         background-color: #1c1c1c83;
         height: 180px;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         position: absolute;
         top: 20px;
@@ -25,6 +25,12 @@
         color: white;
         box-shadow: 0 0 6px #9c06069f;
         z-index: 0;
+
+        .logo-header{
+            width: 160px;
+            height: 160px;
+            filter: drop-shadow(1px 1px 1px rgb(156 6 6 / 70%));
+        }
     }
 
     .middle-container {
