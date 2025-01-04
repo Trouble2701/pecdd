@@ -7,7 +7,6 @@
     padding-left: 5px;
     padding-right: 5px;
     //background-image: linear-gradient(180deg, #1c1c1c 40%, #460808);
-    border-radius: 0 0 15px 15px;
     //box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.349);
     position: relative;
 
@@ -23,7 +22,7 @@
         left: 10px;
         border-radius: 15px;
         color: white;
-        box-shadow: 0 0 6px #9c06069f;
+        box-shadow: -2px -3px 6px #9c06069f;
         z-index: 0;
 
         .logo-header{
@@ -40,7 +39,7 @@
         top: 11px;
         left: 50%;
         transform: translateX(-50%);
-        z-index: 1;
+        z-index: 2;
     }
 
     .right-container{
@@ -55,7 +54,7 @@
         right: 10px;
         border-radius: 15px;
         color: white;
-        box-shadow: 0 0 6px #9c06069f;
+        box-shadow: 2px -3px 6px #9c06069f;
         z-index: 0;
     }
 }
