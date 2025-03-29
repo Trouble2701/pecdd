@@ -1,1 +1,13 @@
-<p>locations works!</p>
+<div class="areas">
+@for(area of areas; track area.name){
+    <div class="area">
+        <div class="screenshot"><img class="area_img" src="images/areas/{{imgSearch(area.img)}}"></div>
+        <div class="data">
+            <div> @if(area.home == 1){HomeZone - }{{area.name}}</div>
+            <div>{{area.adress}} {{area.number}}<br>{{area.zip_code}} {{area.location}}</div>
+            <div><a  class="link" (click)="openAdress(area)">Google Maps</a></div>
+            <div><a class="link" href="{{area.website}}">zur Website</a></div>
+        </div>
+    </div>
+}
+</div>

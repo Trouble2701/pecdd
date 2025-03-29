@@ -1,0 +1,57 @@
+.areas
+{
+    width: 100vw;
+    max-width: 1440px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 25px;
+
+    .area
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 25px;
+        width: 100%;
+        max-width: 450px;
+        padding: 15px;
+        background-color: #1c1c1c83;
+        border-radius: 10px;
+        box-shadow: 0 0 6px #9c06069f;
+    
+    
+        .screenshot
+        {
+    
+            .area_img
+            {
+                height: 150px;
+            }
+        }
+    
+        .data
+        {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 10px;
+            color: whitesmoke;
+        }
+    }
+}
+
+.link{
+    color: whitesmoke;
+    text-decoration: none;
+    transition: all 125ms ease-in-out;
+    cursor: pointer;
+
+    &:hover
+    {
+        text-decoration: underline;
+        color: #e00000;
+    }
+}
