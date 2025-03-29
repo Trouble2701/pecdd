@@ -42,6 +42,6 @@ testem.log
 Thumbs.db
 
 #php
-/php
+/php/api/
 
-databases.ods
+/databases.ods
