@@ -47,16 +47,17 @@
     .login-button{
         width: 155px;
         height: 35px;
-        background-color: transparent;
+        background-color: #9c06069f;
         border: 1px solid #9c06069f;
         border-radius: 5px;
         color: white;
-        font-size: 14px;
+        font-size: 16px;
+        font-weight: 800;
         cursor: pointer;
         transition: all 500ms ease-in-out;
 
         &:hover{
-            border: 1px solid #e20505c7;
+            border: 1px solid #f30202c7;
         }
     }
 

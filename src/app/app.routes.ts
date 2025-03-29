@@ -8,6 +8,7 @@ import { SaleComponent } from './component/sale/sale.component';
 import { ShopsComponent } from './component/shops/shops.component';
 import { EventsComponent } from './component/events/events.component';
 import { LocationsComponent } from './component/locations/locations.component';
+import { RegcodeComponent } from './component/regcode/regcode.component';
 
 export const routes: Routes = [
     {path: '', component:NewsComponent},
@@ -19,5 +20,6 @@ export const routes: Routes = [
     {path: 'news', component:NewsComponent},
     {path: 'shops', component:ShopsComponent},
     {path: 'events', component:EventsComponent},
-    {path: 'locations', component:LocationsComponent}
+    {path: 'locations', component:LocationsComponent},
+    {path: 'registcode', component:RegcodeComponent}
 ];

@@ -1,7 +1,9 @@
 .top{
     width: calc(100vw - 10px);
-    min-height: calc(100vh - 280px - 100px);
-    margin-top: 180px;
+    min-height: calc(100vh - 300px - 100px);
+    margin-top: 200px;
     margin-left: 5px;
     margin-right: 5px;
+    display: flex;
+    justify-content: center;
 }

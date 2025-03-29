@@ -80,16 +80,16 @@ export class GamedaycounterComponent {
 
   //Set Start and End Datas
   setDate() {
-    this.startDay = 4;
+    this.startDay = 18;
     this.startMonth = 1;
     this.startYear = 2025;
-    this.startHour = 17;
-    this.startMinutes = 46;
-    this.endDay = 4;
+    this.startHour = 21;
+    this.startMinutes = 0;
+    this.endDay = 19;
     this.endMonth = 1;
     this.endYear = 2025;
-    this.endHour = 17;
-    this.endMinutes = 48;
+    this.endHour = 1;
+    this.endMinutes = 0;
     this.SetDataCountDownd(this.startMonth, this.endMonth);
   }
 
