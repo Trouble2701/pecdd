@@ -2,31 +2,46 @@
     <p class="title">Registrierung</p>
     <div class="fields  breaks">
         <p>Vorname:</p>
-        <input type="text" class="inputfield">
+        <input type="text" name="firstname" class="inputfield">
     </div>
     <div class="fields">
         <p>Nachname:</p>
-        <input type="text" class="inputfield">
+        <input type="text" name="lastname" class="inputfield">
+    </div>
+    <div class="fields">
+        <p>Geburtstag:</p>
+        <input type="date" name="birthday" class="inputfield inputDate">
+    </div>
+    <div class="fields">
+        <p>Geschlecht:</p>
+        <div class="custom-dropdown" (clickOutside)="closeDropdown()">
+            <button class="dropdown-btn" (click)="toggleDropdown($event)">{{ selectedOption }}</button>
+            <div class="dropdown-list" *ngIf="dropdownOpen">
+                <div class="dropdown-item" *ngFor="let option of options" (click)="selectOption(option)">
+                    {{ option.label }}
+                </div>
+            </div>
+        </div>
     </div>
     <div class="fields">
         <p>Loginname:</p>
-        <input type="text" class="inputfield">
+        <input type="text" name="loginname" class="inputfield">
     </div>
     <div class="fields">
         <p>E-Mail:</p>
-        <input type="email" class="inputfield">
+        <input type="email" name="email" class="inputfield">
     </div>
     <div class="fields">
         <p>Passwort:</p>
-        <input type="password" class="inputfield">
+        <input type="password" name="passwordfirst" class="inputfield">
     </div>
     <div class="fields">
         <p>Passwort wiederholen:</p>
-        <input type="password" class="inputfield">
+        <input type="password" name="passwordsecond" class="inputfield">
     </div>
     <div class="fields">
         <p>Register Code ( <a (click)="sendCode()">anfordern?</a> ):</p>
-        <input type="text" class="inputfield">
+        <input type="text" name="regcode" class="inputfield">
     </div>
     <div class="fields breaks">
         <button class="button">Datenschutz</button>
