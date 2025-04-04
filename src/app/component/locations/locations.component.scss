@@ -1,12 +1,31 @@
 .areas
 {
-    width: 100vw;
+    width: 95vw;
     max-width: 1440px;
     display: flex;
     justify-content: space-evenly;
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 25px;
+    padding: 15px;
+    background-color: #1c1c1c83;
+    border-radius: 10px;
+    box-shadow: 0 0 6px #9c06069f;
+    position: relative;
+
+    .title{
+        color: whitesmoke;
+        text-decoration: underline;
+        background-color: #1c1c1c83;
+        box-shadow: 0 -4px 8px #9c06069f;
+        padding-left: 8px;
+        padding-right: 8px;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        position: absolute;
+        top: -16px;
+        left: 15px;
+    }
 
     .area
     {
@@ -20,6 +39,7 @@
         background-color: #1c1c1c83;
         border-radius: 10px;
         box-shadow: 0 0 6px #9c06069f;
+        transition: all 125ms ease-in-out;
     
     
         .screenshot
@@ -39,6 +59,10 @@
             flex-direction: column;
             gap: 10px;
             color: whitesmoke;
+        }
+
+        &:hover{
+            transform: scale(1.05);
         }
     }
 }
