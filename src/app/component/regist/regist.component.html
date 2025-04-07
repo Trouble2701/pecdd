@@ -2,15 +2,15 @@
     <p class="title">Registrierung</p>
     <div class="fields  breaks">
         <p>Vorname:</p>
-        <input type="text" name="firstname" class="inputfield">
+        <input type="text" [(ngModel)]="regData.firstname" name="firstname" class="inputfield">
     </div>
     <div class="fields">
         <p>Nachname:</p>
-        <input type="text" name="lastname" class="inputfield">
+        <input type="text" [(ngModel)]="regData.lastName" name="lastname" class="inputfield">
     </div>
     <div class="fields">
         <p>Geburtstag:</p>
-        <input type="date" name="birthday" class="inputfield inputDate">
+        <input type="date" [(ngModel)]="regData.birthday" name="birthday" class="inputfield inputDate">
     </div>
     <div class="fields">
         <p>Geschlecht:</p>
@@ -25,26 +25,26 @@
     </div>
     <div class="fields">
         <p>Loginname:</p>
-        <input type="text" name="loginname" class="inputfield">
+        <input type="text" [(ngModel)]="regData.loginName" name="loginname" class="inputfield">
     </div>
     <div class="fields">
         <p>E-Mail:</p>
-        <input type="email" name="email" class="inputfield">
+        <input type="email" [(ngModel)]="regData.email" name="email" class="inputfield">
     </div>
     <div class="fields">
         <p>Passwort:</p>
-        <input type="password" name="passwordfirst" class="inputfield">
+        <input type="password" [(ngModel)]="regData.password" name="passwordfirst" class="inputfield">
     </div>
     <div class="fields">
         <p>Passwort wiederholen:</p>
-        <input type="password" name="passwordsecond" class="inputfield">
+        <input type="password" [(ngModel)]="regData.passwordCheck" name="passwordsecond" class="inputfield">
     </div>
     <div class="fields">
         <p>Register Code ( <a (click)="sendCode()">anfordern?</a> ):</p>
-        <input type="text" name="regcode" class="inputfield">
+        <input type="text" [(ngModel)]="regData.registerCode" name="regcode" class="inputfield">
     </div>
     <div class="fields breaks">
         <button class="button">Datenschutz</button>
-        <button class="button">Registrieren</button>
+        <button class="button" (click)="save()">Registrieren</button>
     </div>
 </div>

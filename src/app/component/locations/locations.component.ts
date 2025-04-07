@@ -22,10 +22,6 @@ export class LocationsComponent {
     this.fetchAreas()
   }
 
-  getScreenshotUrl(siteUrl: string): string {
-    return `https://api.screenshotone.com/take?url=${encodeURIComponent(siteUrl)}&dimension=1024x768`;
-  }
-
 
   // GET-Anfrage zum Abrufen der Daten
   fetchAreas() {
