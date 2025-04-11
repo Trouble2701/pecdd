@@ -2,29 +2,48 @@
 require('db.php');
 header('Content-Type: application/json');
 
-// Zuerst den POST-Daten empfangen
+// POST-Daten empfangen
 $data = json_decode(file_get_contents("php://input"), true);
 
-// Versuchen, die Daten in die Datenbank einzufügen
-$stmt = $conn->prepare("INSERT INTO users (first_name, last_name, nickname, email, password) VALUES (?, ?, ?, ?, ?)");
-$stmt->bind_param("sssss", $data['first_name'], $data['last_name'], $data['nickname'], $data['email'], $data['password']);
-$stmt->execute();
+// Feste Werte in Variablen speichern
+$status = '1';
+$crew_status = '1';
+$activate = '0';
+$block = '0';
 
-// Antwort zurück an den Client
-if ($stmt->affected_rows > 0) {
-    // Erfolgreich gespeichert
+$passwortHash = password_hash($data['password'], PASSWORD_DEFAULT);
+// Prepare & Bind
+$stmt = $conn->prepare("INSERT INTO users (first_name, last_name, nickname, email, birthday, gender, password, regist_date, status, crew_status, activate, block) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param(
+    "ssssssssssss", 
+    $data['first_name'], 
+    $data['last_name'], 
+    $data['nickname'], 
+    $data['email'], 
+    $data['birthday'], 
+    $data['gender'], 
+    $passwortHash, 
+    $data['regdate'],
+    $status, 
+    $crew_status, 
+    $activate, 
+    $block
+);
+
+// Execute & Response
+if ($stmt->execute()) {
     echo json_encode([
-        'success' => true, 
+        'success' => true,
         'message' => 'Daten gespeichert',
         'ID' => $stmt->insert_id
     ]);
 } else {
-    // Fehler beim Speichern
     echo json_encode([
-        'success' => false, 
-        'error' => 'Fehlermeldung'
+        'success' => false,
+        'error' => $stmt->error
     ]);
 }
 
 $stmt->close();
+$conn->close();
 ?>

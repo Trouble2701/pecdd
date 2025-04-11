@@ -32,6 +32,7 @@
         width: 600px;
         display: flex;
         justify-content: space-between;
+        align-items: center;
 
         p{
             color: whitesmoke;
@@ -149,4 +150,24 @@
 
 .dropdown-item:hover {
     background: #e20505c7;
+}
+
+.img_size_true{
+    display: none;
+    height: 22px;
+}
+
+.img_size_false{
+    display: none;
+    height: 15px;
+}
+
+.regCheck{
+    display: none;
+    color: green;
+}
+
+.regCheckFalse{
+    display: none;
+    color: red;
 }

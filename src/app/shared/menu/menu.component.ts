@@ -13,7 +13,7 @@ export class MenuComponent {
   constructor(private router:Router){}
 
   home(){
-    this.router.navigate(['']);
+    this.router.navigate(['/start']);
   }
 
   calender(){

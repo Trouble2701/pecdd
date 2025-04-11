@@ -12,6 +12,7 @@ import { RegcodeComponent } from './component/regcode/regcode.component';
 
 export const routes: Routes = [
     {path: '', component:NewsComponent},
+    {path: 'start', component:NewsComponent},
     {path: 'regist', component:RegistComponent},
     {path: 'pwforgot', component:PwforgotComponent},
     {path: 'calender', component:CalenderComponent},
