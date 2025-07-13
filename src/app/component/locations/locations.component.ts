@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-locations',
   standalone: true,
-  imports: [HttpClientModule],
+  imports: [
+// TODO: `HttpClientModule` should not be imported into a component directly.
+// Please refactor the code to add `provideHttpClient()` call to the provider list in the
+// application bootstrap logic and remove the `HttpClientModule` import from this component.
+HttpClientModule],
   templateUrl: './locations.component.html',
   styleUrl: './locations.component.scss'
 })

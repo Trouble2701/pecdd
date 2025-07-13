@@ -2,12 +2,16 @@ import { Component, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule, NgIf, NgFor } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-regist',
   standalone: true,
-  imports: [CommonModule, NgIf, NgFor, FormsModule, HttpClientModule],
+  imports: [CommonModule, NgIf, NgFor, FormsModule, 
+// TODO: `HttpClientModule` should not be imported into a component directly.
+// Please refactor the code to add `provideHttpClient()` call to the provider list in the
+// application bootstrap logic and remove the `HttpClientModule` import from this component.
+HttpClientModule],
   templateUrl: './regist.component.html',
   styleUrl: './regist.component.scss'
 })
