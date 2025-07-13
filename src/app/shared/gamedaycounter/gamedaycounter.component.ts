@@ -1,11 +1,10 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-gamedaycounter',
-  standalone: true,
-  imports: [],
-  templateUrl: './gamedaycounter.component.html',
-  styleUrl: './gamedaycounter.component.scss'
+    selector: 'app-gamedaycounter',
+    imports: [],
+    templateUrl: './gamedaycounter.component.html',
+    styleUrl: './gamedaycounter.component.scss'
 })
 export class GamedaycounterComponent {
   countDownDate: any;

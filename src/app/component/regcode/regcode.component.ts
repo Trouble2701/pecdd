@@ -2,11 +2,10 @@ import { Component, HostListener } from '@angular/core';
 import { CommonModule, NgIf, NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-regcode',
-  standalone: true,
-  imports: [CommonModule, NgIf, NgFor],
-  templateUrl: './regcode.component.html',
-  styleUrl: './regcode.component.scss'
+    selector: 'app-regcode',
+    imports: [CommonModule, NgIf, NgFor],
+    templateUrl: './regcode.component.html',
+    styleUrl: './regcode.component.scss'
 })
 export class RegcodeComponent {
 

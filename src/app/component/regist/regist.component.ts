@@ -5,15 +5,14 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-regist',
-  standalone: true,
-  imports: [CommonModule, NgIf, NgFor, FormsModule, 
-// TODO: `HttpClientModule` should not be imported into a component directly.
-// Please refactor the code to add `provideHttpClient()` call to the provider list in the
-// application bootstrap logic and remove the `HttpClientModule` import from this component.
-HttpClientModule],
-  templateUrl: './regist.component.html',
-  styleUrl: './regist.component.scss'
+    selector: 'app-regist',
+    imports: [CommonModule, NgIf, NgFor, FormsModule,
+        // TODO: `HttpClientModule` should not be imported into a component directly.
+        // Please refactor the code to add `provideHttpClient()` call to the provider list in the
+        // application bootstrap logic and remove the `HttpClientModule` import from this component.
+        HttpClientModule],
+    templateUrl: './regist.component.html',
+    styleUrl: './regist.component.scss'
 })
 export class RegistComponent {
 
