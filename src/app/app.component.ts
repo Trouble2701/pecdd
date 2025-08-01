@@ -1,18 +1,15 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HttpClient } from '@angular/common/http';
+import { StartanimationComponent } from './component/startanimation/startanimation.component';
 
 
 @Component({
     selector: 'app-root',
-    imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent,
-        // TODO: `HttpClientModule` should not be imported into a component directly.
-        // Please refactor the code to add `provideHttpClient()` call to the provider list in the
-        // application bootstrap logic and remove the `HttpClientModule` import from this component.
-        HttpClientModule],
+    imports: [RouterOutlet, HeaderComponent, FooterComponent, StartanimationComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
 })

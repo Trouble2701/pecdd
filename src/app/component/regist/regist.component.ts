@@ -1,16 +1,12 @@
 import { Component, HostListener, ViewChild, ElementRef } from '@angular/core';
-import { CommonModule, NgIf, NgFor } from '@angular/common';
+
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: 'app-regist',
-    imports: [CommonModule, NgIf, NgFor, FormsModule,
-        // TODO: `HttpClientModule` should not be imported into a component directly.
-        // Please refactor the code to add `provideHttpClient()` call to the provider list in the
-        // application bootstrap logic and remove the `HttpClientModule` import from this component.
-        HttpClientModule],
+    imports: [FormsModule],
     templateUrl: './regist.component.html',
     styleUrl: './regist.component.scss'
 })
@@ -268,7 +264,7 @@ export class RegistComponent {
 
   saveUserData(){
     console.log(this.regData);
-      this.http.post('php/api/saveUser.php', { 
+      this.http.post('http://vorlage.paintball-evolution-crew.de/php/api/saveUser.php', { 
         first_name: this.regData.firstname, 
         last_name: this.regData.lastName,  
         nickname: this.regData.loginName, 

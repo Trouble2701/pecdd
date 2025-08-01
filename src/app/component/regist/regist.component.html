@@ -1,56 +1,60 @@
 <div class="regist_site">
-    <p class="title">Registrierung</p>
-    <div class="fields  breaks">
-        <p>Vorname: <img src="./../../../assets/icons/true.png" class="img_size_true" #firstNameTrue><img src="./../../../assets/icons/false.png" class="img_size_false" #firstNameFalse> </p>
-        <input type="text" (input)="checkFirstName()" [(ngModel)]="regData.firstname" name="firstname" class="inputfield" required>
-    </div>
-    <div class="fields">
-        <p>Nachname: <img src="./../../../assets/icons/true.png" class="img_size_true" #lastNameTrue><img src="./../../../assets/icons/false.png" class="img_size_false" #lastNameFalse> </p>
-        <input type="text" (input)="checkLastName()" [(ngModel)]="regData.lastName" name="lastname" class="inputfield" required>
-    </div>
-    <div class="fields">
-        <p>Geburtstag: <img src="./../../../assets/icons/true.png" class="img_size_true" #birthdayTrue><img src="./../../../assets/icons/false.png" class="img_size_false" #birthdayFalse> </p>
-        <input type="date" (input)="checkBirthday()" [(ngModel)]="regData.birthday" name="birthday" class="inputfield inputDate" required>
-    </div>
-    <div class="fields">
-        <p>Geschlecht:</p>
-        <div class="custom-dropdown" (clickOutside)="closeDropdown()">
-            <button class="dropdown-btn" (click)="toggleDropdown($event)">{{ selectedOption }}</button>
-            <div class="dropdown-list" *ngIf="dropdownOpen">
-                <div class="dropdown-item" *ngFor="let option of options" (click)="selectOption(option)">
-                    {{ option.label }}
-                </div>
+  <p class="title">Registrierung</p>
+  <div class="fields  breaks">
+    <p>Vorname: <img src="./../../../assets/icons/true.png" class="img_size_true" #firstNameTrue><img src="./../../../assets/icons/false.png" class="img_size_false" #firstNameFalse> </p>
+    <input type="text" (input)="checkFirstName()" [(ngModel)]="regData.firstname" name="firstname" class="inputfield" required>
+  </div>
+  <div class="fields">
+    <p>Nachname: <img src="./../../../assets/icons/true.png" class="img_size_true" #lastNameTrue><img src="./../../../assets/icons/false.png" class="img_size_false" #lastNameFalse> </p>
+    <input type="text" (input)="checkLastName()" [(ngModel)]="regData.lastName" name="lastname" class="inputfield" required>
+  </div>
+  <div class="fields">
+    <p>Geburtstag: <img src="./../../../assets/icons/true.png" class="img_size_true" #birthdayTrue><img src="./../../../assets/icons/false.png" class="img_size_false" #birthdayFalse> </p>
+    <input type="date" (input)="checkBirthday()" [(ngModel)]="regData.birthday" name="birthday" class="inputfield inputDate" required>
+  </div>
+  <div class="fields">
+    <p>Geschlecht:</p>
+    <div class="custom-dropdown" (clickOutside)="closeDropdown()">
+      <button class="dropdown-btn" (click)="toggleDropdown($event)">{{ selectedOption }}</button>
+      @if (dropdownOpen) {
+        <div class="dropdown-list">
+          @for (option of options; track option) {
+            <div class="dropdown-item" (click)="selectOption(option)">
+              {{ option.label }}
             </div>
+          }
         </div>
+      }
     </div>
-    <div class="fields">
-        <p>Loginname: <img src="./../../../assets/icons/true.png" class="img_size_true" #loginNameTrue><img src="./../../../assets/icons/false.png" class="img_size_false" #loginNameFalse> </p>
-        <input type="text" (input)="checkNickName()" [(ngModel)]="regData.loginName" name="loginname" class="inputfield" required>
-    </div>
-    <div class="fields">
-        <p>E-Mail: <img src="./../../../assets/icons/true.png" class="img_size_true"#emailTrue><img src="./../../../assets/icons/false.png" class="img_size_false" #emailFalse> </p>
-        <input type="email" (input)="checkEmail()" [(ngModel)]="regData.email" name="email" class="inputfield" required>
-    </div>
-    <div class="fields">
-        <p title="min 8 Zeichen, 1 Großbuchstabe und 1 Sonderzeichen">Passwort: <img src="./../../../assets/icons/true.png" class="img_size_true"#passTrue><img src="./../../../assets/icons/false.png" class="img_size_false" #passFalse> </p>
-        <input type="password" (input)="checkFirstPassword()" [(ngModel)]="regData.password" name="passwordfirst" class="inputfield" required>
-    </div>
-    <div class="fields">
-        <p>Passwort wiederholen: <img src="./../../../assets/icons/true.png" class="img_size_true"#passSecondTrue><img src="./../../../assets/icons/false.png" class="img_size_false" #passSecondFalse> </p>
-        <input type="password" (input)="checkSecondPassword()" [(ngModel)]="regData.passwordSecond" name="passwordsecond" class="inputfield" required>
-    </div>
-    <div class="fields">
-        <p>Register Code: <img src="./../../../assets/icons/true.png" class="img_size_true" #regCodeTrue><img src="./../../../assets/icons/false.png" class="img_size_false" #regCodeFalse> </p>
-        <input type="text" (input)="checkRegCode()" [(ngModel)]="regData.registerCode" name="regcode" class="inputfield" required>
-    </div>
-    <div class="fields">
-        <p><a (click)="sendCode()">Register Code anfordern?</a>
-        <p #fillFields>Alle Felder ausfüllen</p>
-        <p class="regCheck" #regSave>Registrierung Erfolgreich</p>
-        <p class="regCheckFalse" #regSaveFalse>Bitte Daten Prüfen!</p>
-    </div>
-    <div class="fields breaks">
-        <button class="button">Datenschutz</button>
-        <button class="button" (click)="save()">Registrieren</button>
-    </div>
+  </div>
+  <div class="fields">
+    <p>Loginname: <img src="./../../../assets/icons/true.png" class="img_size_true" #loginNameTrue><img src="./../../../assets/icons/false.png" class="img_size_false" #loginNameFalse> </p>
+    <input type="text" (input)="checkNickName()" [(ngModel)]="regData.loginName" name="loginname" class="inputfield" required>
+  </div>
+  <div class="fields">
+    <p>E-Mail: <img src="./../../../assets/icons/true.png" class="img_size_true"#emailTrue><img src="./../../../assets/icons/false.png" class="img_size_false" #emailFalse> </p>
+    <input type="email" (input)="checkEmail()" [(ngModel)]="regData.email" name="email" class="inputfield" required>
+  </div>
+  <div class="fields">
+    <p title="min 8 Zeichen, 1 Großbuchstabe und 1 Sonderzeichen">Passwort: <img src="./../../../assets/icons/true.png" class="img_size_true"#passTrue><img src="./../../../assets/icons/false.png" class="img_size_false" #passFalse> </p>
+    <input type="password" (input)="checkFirstPassword()" [(ngModel)]="regData.password" name="passwordfirst" class="inputfield" required>
+  </div>
+  <div class="fields">
+    <p>Passwort wiederholen: <img src="./../../../assets/icons/true.png" class="img_size_true"#passSecondTrue><img src="./../../../assets/icons/false.png" class="img_size_false" #passSecondFalse> </p>
+    <input type="password" (input)="checkSecondPassword()" [(ngModel)]="regData.passwordSecond" name="passwordsecond" class="inputfield" required>
+  </div>
+  <div class="fields">
+    <p>Register Code: <img src="./../../../assets/icons/true.png" class="img_size_true" #regCodeTrue><img src="./../../../assets/icons/false.png" class="img_size_false" #regCodeFalse> </p>
+    <input type="text" (input)="checkRegCode()" [(ngModel)]="regData.registerCode" name="regcode" class="inputfield" required>
+  </div>
+  <div class="fields">
+    <p><a (click)="sendCode()">Register Code anfordern?</a>
+    <p #fillFields>Alle Felder ausfüllen</p>
+    <p class="regCheck" #regSave>Registrierung Erfolgreich</p>
+    <p class="regCheckFalse" #regSaveFalse>Bitte Daten Prüfen!</p>
+  </div>
+  <div class="fields breaks">
+    <button class="button">Datenschutz</button>
+    <button class="button" (click)="save()">Registrieren</button>
+  </div>
 </div>

@@ -1,14 +1,10 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+
 @Component({
     selector: 'app-locations',
-    imports: [
-        // TODO: `HttpClientModule` should not be imported into a component directly.
-        // Please refactor the code to add `provideHttpClient()` call to the provider list in the
-        // application bootstrap logic and remove the `HttpClientModule` import from this component.
-        HttpClientModule
-    ],
+    imports: [],
     templateUrl: './locations.component.html',
     styleUrl: './locations.component.scss'
 })
@@ -29,7 +25,7 @@ export class LocationsComponent {
 
   // GET-Anfrage zum Abrufen der Daten
   fetchAreas() {
-    this.http.get('php/api/areas.php')
+    this.http.get('http://vorlage.paintball-evolution-crew.de/php/api/areas.php')
       .subscribe(data => {
         // Die abgerufenen Daten in der `areas`-Variable speichern
         this.areas = data as any[];

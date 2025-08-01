@@ -1,0 +1,60 @@
+.background {
+    width: 100dvw;
+    height: 100dvh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10000;
+    opacity: 1;
+    visibility: visible;
+    background-image: linear-gradient(40deg, #1c1c1c 40%, #460808);
+    transition: opacity 1000ms ease-in-out, visibility 1000ms;
+
+    .startscreen {
+        width: 40dvw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        z-index: 1000;
+        filter: drop-shadow(1px 1px 1px rgb(156 6 6 / 70%));
+        transition: all 1000ms ease-in-out;
+    }
+
+    .startscreen-outro {
+        /* Die Elementeigenschaften für den Endzustand */
+        width: 10dvw;
+
+        /* Positionieren in die linke obere Ecke */
+        top: -20%;
+        left: -20%;
+
+        /* Kombinierte Transformationen für Drehung, Skalierung und Position */
+        transform: translate(0, 0) rotate(360deg) scale(0);
+
+        /* Die restlichen Styles bleiben gleich */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        z-index: 1000;
+        filter: drop-shadow(1px 1px 1px rgb(156 6 6 / 70%));
+        transition: all 1000ms ease-in-out;
+    }
+
+    .startscreen-hidden {
+        display: none;
+    }
+}
+
+.background-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.background-dont {
+    display: none;
+}

@@ -56,3 +56,41 @@
         z-index: 0;
     }
 }
+
+
+.logo-intro{
+    width: 600px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    transform: translate(-50%, 50%);
+    z-index: 1000;
+    filter: drop-shadow(1px 1px 1px rgb(156 6 6 / 70%));
+    transition: all 500ms ease-in-out;
+}
+
+.logo-outro {
+    /* Die Elementeigenschaften für den Endzustand */
+    width: 600px;
+    height: 600px;
+    
+    /* Positionieren in die linke obere Ecke */
+    top: -115%;
+    left: -19%;
+    
+    /* Kombinierte Transformationen für Drehung, Skalierung und Position */
+    transform: translate(0, 0) rotate(360deg) scale(0.27);
+
+    /* Die restlichen Styles bleiben gleich */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1000;
+    filter: drop-shadow(1px 1px 1px rgb(156 6 6 / 70%));
+    transition: all 500ms ease-in-out;
+}

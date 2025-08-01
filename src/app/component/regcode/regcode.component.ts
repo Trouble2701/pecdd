@@ -1,9 +1,9 @@
 import { Component, HostListener } from '@angular/core';
-import { CommonModule, NgIf, NgFor } from '@angular/common';
+
 
 @Component({
     selector: 'app-regcode',
-    imports: [CommonModule, NgIf, NgFor],
+    imports: [],
     templateUrl: './regcode.component.html',
     styleUrl: './regcode.component.scss'
 })
