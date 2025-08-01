@@ -264,7 +264,7 @@ export class RegistComponent {
 
   saveUserData(){
     console.log(this.regData);
-      this.http.post('http://vorlage.paintball-evolution-crew.de/php/api/saveUser.php', { 
+      this.http.post('php/api/saveUser.php', { 
         first_name: this.regData.firstname, 
         last_name: this.regData.lastName,  
         nickname: this.regData.loginName, 
