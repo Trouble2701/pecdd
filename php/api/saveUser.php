@@ -1,4 +1,7 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
 require('db.php');
 header('Content-Type: application/json');
 
@@ -13,9 +16,9 @@ $block = '0';
 
 $passwortHash = password_hash($data['password'], PASSWORD_DEFAULT);
 // Prepare & Bind
-$stmt = $conn->prepare("INSERT INTO users (first_name, last_name, nickname, email, birthday, gender, password, regist_date, status, crew_status, activate, block) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO users (first_name, last_name, nickname, email, birthday, gender, password, regist_date, status, crew_status, activate, block, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param(
-    "ssssssssssss", 
+    "sssssssssssss", 
     $data['first_name'], 
     $data['last_name'], 
     $data['nickname'], 
@@ -27,7 +30,8 @@ $stmt->bind_param(
     $status, 
     $crew_status, 
     $activate, 
-    $block
+    $block,
+    $data['token']
 );
 
 // Execute & Response

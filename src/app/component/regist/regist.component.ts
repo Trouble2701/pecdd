@@ -32,7 +32,12 @@ export class RegistComponent {
   @ViewChild('regSave') regSave: ElementRef | any;
   @ViewChild('regSaveFalse') regSaveFalse: ElementRef | any;
 
-  constructor(private router: Router, private http: HttpClient){}
+  isSaving = false;
+
+  constructor(
+    private router: Router, 
+    private http: HttpClient,
+  ){}
 
   ngOnInit() {
     this.selectedOption = this.options.find(opt => opt.value === this.regData.gender)?.label || 'Auswählen';
@@ -55,6 +60,7 @@ export class RegistComponent {
     firstNameCheck: false,
     lastNameCheck: false,
     birthdayCheck: false,
+    token:'',
   }
 
   sendCode(){
@@ -69,7 +75,7 @@ export class RegistComponent {
   selectedOption = this.options.find(opt => opt.value === this.regData.gender)?.label || 'Auswählen';
 
   toggleDropdown(event: Event) {
-    event.stopPropagation(); // Verhindert das Schließen direkt nach dem Öffnen
+    event.stopPropagation();
     this.dropdownOpen = !this.dropdownOpen;
   }
 
@@ -92,7 +98,7 @@ export class RegistComponent {
       return;
     }
   
-    this.http.post<any>('php/api/checkLoginName.php', { nickname }).subscribe({
+    this.http.post<any>('http://vorlage.paintball-evolution-crew.de/php/api/checkLoginName.php', { nickname }).subscribe({
       next: (response) => {
         if (response.success) {
           this.regData.loginNameCheck = false;
@@ -130,7 +136,7 @@ export class RegistComponent {
       return;
     }
   
-    this.http.post<any>('php/api/checkEmail.php', { email }).subscribe({
+    this.http.post<any>('http://vorlage.paintball-evolution-crew.de/php/api/checkEmail.php', { email }).subscribe({
       next: (response) => {
         if (response.success) {
           this.regData.emailCheck = false;
@@ -157,7 +163,7 @@ export class RegistComponent {
       return;
     }
   
-    this.http.post<any>('php/api/checkRegCode.php', { regCode }).subscribe({
+    this.http.post<any>('http://vorlage.paintball-evolution-crew.de/php/api/checkRegCode.php', { regCode }).subscribe({
       next: (response) => {
         if (response.success) {
           this.regData.registerCodeCheck = true;
@@ -252,19 +258,68 @@ export class RegistComponent {
 
   save() {
     if(this.checkAllData()){
-      this.saveUserData()
+       this.saveUserData()
     }else{
       this.saveUserDataFalse()
     }
   }
 
+  generateToken():any{
+    this.http.get<any>('http://vorlage.paintball-evolution-crew.de/php/api/generateToken.php').subscribe({
+      next: (response) => {
+        if (response.success) {
+          this.regData.token = response.token
+        }
+
+        this.checkToken();
+      },
+      error: (err) => {
+        console.error('❌ Fehler beim Abrufen der Antwort:', err);
+      }
+    });
+  }
+
+  checkToken(){
+    const checkToken = this.regData.token;
+    this.http.post<any>('http://vorlage.paintball-evolution-crew.de/php/api/token.php', { checkToken }).subscribe({
+      next: (response) => {
+        if (!response.success) {
+          this.deleteRegCode();
+          //this.save();
+        } else {
+          this.regData.token = '';
+          this. generateToken();
+        }
+      },
+      error: (err) => {
+        console.error('❌ Fehler beim Abrufen der Antwort:', err);
+      }
+    });
+  }
+
+  deleteRegCode(){
+    const regCode = this.regData.registerCode
+    this.http.post<any>('http://vorlage.paintball-evolution-crew.de/php/api/deleteRegcode.php', { regCode }).subscribe({
+      next: (response) => {
+        if (response.success) {
+          console.log(response.message)
+          //this.save();
+        } else {
+          console.log(response.message)
+        }
+      },
+      error: (err) => {
+        console.error('❌ Fehler beim Abrufen der Antwort:', err);
+      }
+    });
+  }
+
   checkAllData(){
-    return this.regData.loginNameCheck && this.regData.emailCheck && this.regData.passwordCheck && this.regData.registerCodeCheck && this.regData.firstNameCheck && this.regData.lastNameCheck && this.regData.birthdayCheck
+    return this.regData.loginNameCheck && this.regData.emailCheck && this.regData.passwordCheck && this.regData.registerCodeCheck && this.regData.firstNameCheck && this.regData.lastNameCheck && this.regData.birthdayCheck && this.regData.token
   }
 
   saveUserData(){
-    console.log(this.regData);
-      this.http.post('php/api/saveUser.php', { 
+      this.http.post('http://vorlage.paintball-evolution-crew.de/php/api/saveUser.php', { 
         first_name: this.regData.firstname, 
         last_name: this.regData.lastName,  
         nickname: this.regData.loginName, 
@@ -273,7 +328,8 @@ export class RegistComponent {
         gender: this.regData.gender,
         password: this.regData.password,
         regdate: new Date(),
-        registCode: this.regData.registerCode
+        registCode: this.regData.registerCode,
+        token: this.regData.token
       }).subscribe(
         (response: any) => {
           if (response.success) {

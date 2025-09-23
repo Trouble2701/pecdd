@@ -12,7 +12,7 @@ export class MenuComponent {
   constructor(private router:Router){}
 
   home(){
-    this.router.navigate(['/start']);
+    this.router.navigate(['/news']);
   }
 
   calender(){

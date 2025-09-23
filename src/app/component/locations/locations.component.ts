@@ -25,7 +25,7 @@ export class LocationsComponent {
 
   // GET-Anfrage zum Abrufen der Daten
   fetchAreas() {
-    this.http.get('php/api/areas.php')
+    this.http.get('http://vorlage.paintball-evolution-crew.de/php/api/areas.php')
       .subscribe(data => {
         // Die abgerufenen Daten in der `areas`-Variable speichern
         this.areas = data as any[];
