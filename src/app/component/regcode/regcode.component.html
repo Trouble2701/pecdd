@@ -2,15 +2,15 @@
   <p class="title">Registrierungscode anfordern</p>
   <div class="fields  breaks">
     <p>Vorname:</p>
-    <input type="text" class="inputfield">
+    <input type="text" class="inputfield" [(ngModel)]="regcode.firstname">
   </div>
   <div class="fields">
     <p>Nachname:</p>
-    <input type="text" class="inputfield">
+    <input type="text" class="inputfield" [(ngModel)]="regcode.lastname">
   </div>
   <div class="fields">
     <p>E-Mail:</p>
-    <input type="email" class="inputfield">
+    <input type="email" class="inputfield" [(ngModel)]="regcode.email">
   </div>
   <div class="fields">
     <p>Schon Mitglied:</p>
@@ -27,8 +27,12 @@
       }
     </div>
   </div>
+  <div class="fields">
+    <p>Alles eintragen</p>
+    <p class="False" #sendStatus>{{ sendInfo }}</p>
+  </div>
   <div class="fields breaks">
     <button class="button" onclick="history.back()">Zurück</button>
-    <button class="button">Registrieren</button>
+    <button class="button" (click)="sendQuestion()">Anfordern</button>
   </div>
 </div>

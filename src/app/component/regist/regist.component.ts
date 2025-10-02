@@ -285,7 +285,7 @@ export class RegistComponent {
       next: (response) => {
         if (!response.success) {
           this.deleteRegCode();
-          //this.save();
+          this.save();
         } else {
           this.regData.token = '';
           this. generateToken();
@@ -303,9 +303,8 @@ export class RegistComponent {
       next: (response) => {
         if (response.success) {
           console.log(response.message)
-          //this.save();
         } else {
-          console.log(response.message)
+          console.error(response.message)
         }
       },
       error: (err) => {

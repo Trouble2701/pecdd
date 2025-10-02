@@ -29,16 +29,6 @@ export class LocationsComponent {
       .subscribe(data => {
         // Die abgerufenen Daten in der `areas`-Variable speichern
         this.areas = data as any[];
-  
-        // Sicherstellen, dass es tatsächlich Bereiche gibt
-        if (this.areas && this.areas.length > 0) {
-          console.log('Antwort vom Server (GET):', this.areas);
-  
-          // Durch jede Area iterieren und die Adressen in Google Maps öffnen
-          /* this.areas.forEach(area => {
-            this.openAdress(area); // Für jede Area die Adresse öffnen
-          }); */
-        }
       }, error => {
         console.error('Fehler beim Abrufen der Daten:', error);
       });
@@ -56,7 +46,7 @@ export class LocationsComponent {
       const googleMapsUrl = `https://www.google.com/maps?q=${encodedAdresse}`;
       
       // Google Maps in neuem Tab öffnen
-      console.log(window.open(googleMapsUrl, "_blank"));
+      window.open(googleMapsUrl, "_blank");
     } else {
       console.error('Die Adresse ist unvollständig:', area);
     }

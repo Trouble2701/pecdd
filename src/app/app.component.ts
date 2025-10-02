@@ -15,22 +15,17 @@ import { StartanimationComponent } from './component/startanimation/startanimati
 })
 export class AppComponent {
   title = 'pecdd';
-  areas: any[] = [];
+  users: any[] = [];
   
 
-  constructor(private http: HttpClient) {}
-  ngOnInit(){
-    //this.fetchAreas()
+  constructor(private http: HttpClient) {
+    this.fetchAreas()
   }
 
-
-  // GET-Anfrage zum Abrufen der Daten
   fetchAreas() {
     this.http.get('php/api/user.php')
       .subscribe(data => {
-        // Die abgerufenen Daten in der `areas`-Variable speichern
-        this.areas = data as any[];
-        //console.log('Antwort vom Server (GET):', this.areas);
+        this.users = data as any[];
       });
   }
 }

@@ -11,7 +11,7 @@ $data = json_decode(file_get_contents("php://input"), true);
 // Feste Werte in Variablen speichern
 $status = '1';
 $crew_status = '1';
-$activate = '0';
+$activate = '1';
 $block = '0';
 
 $passwortHash = password_hash($data['password'], PASSWORD_DEFAULT);
