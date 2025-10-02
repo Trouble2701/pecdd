@@ -43,3 +43,7 @@ Thumbs.db
 
 #datenbank
 *.ods
+
+#mail
+/php/PHPMailer-master
+/php/sendmail.php
