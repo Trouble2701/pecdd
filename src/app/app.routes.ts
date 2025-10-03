@@ -10,6 +10,7 @@ import { EventsComponent } from './component/events/events.component';
 import { LocationsComponent } from './component/locations/locations.component';
 import { RegcodeComponent } from './component/regcode/regcode.component';
 import { GamedayComponent } from './component/gameday/gameday.component';
+import { ChangepwComponent } from './component/changepw/changepw.component';
 
 export const routes: Routes = [
     {path: '', component:NewsComponent},
@@ -24,4 +25,5 @@ export const routes: Routes = [
     {path: 'events', component:EventsComponent},
     {path: 'locations', component:LocationsComponent},
     {path: 'registcode', component:RegcodeComponent},
+    {path: 'changepw/:token', component:ChangepwComponent}
 ];

@@ -1,9 +1,17 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-  RewriteCond %{REQUEST_URI} !^php/api/
-  RewriteRule ^index\.html$ - [L]
+  
+  # 1. AUSNAHME FÜR PHP: Wenn der Pfad mit '/php/' beginnt, stoppen und die Datei direkt ausliefern.
+  # Dies verhindert, dass die Angular-Regeln greifen.
+  RewriteRule ^php/.* - [L]
+
+  # 2. STANDARD ANGULAR ROUTING: Führt die index.html aus, 
+  # wenn der Pfad weder eine existierende Datei (!-f) noch ein existierendes Verzeichnis (!-d) ist.
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /index.html [L]
+  
+  # Anmerkung: Die alte Regel 'RewriteRule ^index\.html$ - [L]' ist nun unnötig,
+  # da sie in der neuen Struktur durch die Ausnahme-Regel implizit abgedeckt wird.
 </IfModule>

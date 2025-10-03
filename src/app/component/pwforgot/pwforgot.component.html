@@ -1,1 +1,15 @@
-<p>pwforgot works!</p>
+<div class="pwforgot_site">
+  <p class="title">Passwort Vergessen</p>
+  <div class="fields  breaks">
+    <p>Deine E-Mail Adresse: <img src="./../../../assets/icons/true.png" class="img_size_true"#emailTrue><img src="./../../../assets/icons/false.png" class="img_size_false" #emailFalse> </p>
+    <input type="text" (input)="checkEmail()" class="inputfield" [(ngModel)]="mail.email">
+  </div>
+  <div class="fields">
+    <p>&nbsp;</p>
+    <p class="False" #sendStatus>{{ sendInfo }}</p>
+  </div>
+  <div class="fields breaks">
+    <button class="button" onclick="history.back()">Zurück</button>
+    <button class="button" (click)="sendQuestion()">Anfordern</button>
+  </div>
+</div>
