@@ -22,7 +22,7 @@ export class StartanimationComponent implements OnInit, OnDestroy{
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: NavigationEnd) => {
       // Hier wird dein Code bei jeder erfolgreichen Navigation ausgeführt
-      console.log('Neue URL:', event.urlAfterRedirects);
+      //console.log('Neue URL:', event.urlAfterRedirects);
       
       // Du kannst auch hier die URL mit einem Wert vergleichen
       if (event.urlAfterRedirects === '/') {

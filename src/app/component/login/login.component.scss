@@ -10,6 +10,7 @@
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
+    transition: all 125ms ease-in-out;
 
     .fields{
         display: flex;
@@ -80,4 +81,21 @@
             }
         }
     }
+}
+
+.failedLogin{
+    width: 50%;
+    height: 120px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: #1c1c1c83;
+    border-radius: 10px;
+    box-shadow: 0 0 6px #9c06069f;
+    padding: 15px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 125ms ease-in-out;
 }

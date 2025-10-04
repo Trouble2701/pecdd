@@ -11,10 +11,15 @@ import { LocationsComponent } from './component/locations/locations.component';
 import { RegcodeComponent } from './component/regcode/regcode.component';
 import { GamedayComponent } from './component/gameday/gameday.component';
 import { ChangepwComponent } from './component/changepw/changepw.component';
+import { StartComponent } from './component/start/start.component';
+import { PncenterComponent } from './component/pncenter/pncenter.component';
+import { ProfilComponent } from './component/profil/profil.component';
+import { AdminbereichComponent } from './component/adminbereich/adminbereich.component';
+import { LogoutComponent } from './component/logout/logout.component';
 
 export const routes: Routes = [
-    {path: '', component:NewsComponent},
-    {path: 'start', component:NewsComponent},
+    {path: '', component:StartComponent},
+    {path: 'start', component:StartComponent},
     {path: 'regist', component:RegistComponent},
     {path: 'pwforgot', component:PwforgotComponent},
     {path: 'calender', component:CalenderComponent},
@@ -25,5 +30,9 @@ export const routes: Routes = [
     {path: 'events', component:EventsComponent},
     {path: 'locations', component:LocationsComponent},
     {path: 'registcode', component:RegcodeComponent},
-    {path: 'changepw/:token', component:ChangepwComponent}
+    {path: 'changepw/:token', component:ChangepwComponent},
+    {path: 'pncenter', component:PncenterComponent},
+    {path: 'profil', component:ProfilComponent},
+    {path: 'adminbereich', component:AdminbereichComponent},
+    {path: 'loggedout', component:LogoutComponent}
 ];

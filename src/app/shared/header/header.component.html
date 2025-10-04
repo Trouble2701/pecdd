@@ -3,6 +3,9 @@
         <img src="assets/img/logo/logo.png" class="logo-header" alt="" #start_intro>
     </div>
     <div class="middle-container"><app-gamedaycounter></app-gamedaycounter></div>
-    <div class="right-container"><app-login></app-login></div>
+    <div class="right-container"><app-online *ngIf="logged; else showLogin"></app-online></div>
 </div>
+<ng-template #showLogin>
+        <app-login></app-login>
+</ng-template>
 <app-menu></app-menu>

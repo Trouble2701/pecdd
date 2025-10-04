@@ -1,6 +1,6 @@
-<div class="loginfield">
+<div class="loginfield" #loginfield>
     <div class="fields">
-        <input type="text" placeholder="Login Name" [(ngModel)]="loginData.loginname">
+        <input type="text" placeholder="Login Name" [(ngModel)]="loginData.username">
         <input type="password" placeholder="Passwort" [(ngModel)]="loginData.password">
     </div>
     <button (click)="login()" class="login-button">Login</button>
@@ -8,4 +8,8 @@
             <a (click)="regist()">Registrieren</a>
             <a (click)="pwforgot()">Passwort vergessen?</a>        
     </div>
+</div>
+
+<div class="failedLogin" #failedLogin>
+    <p>{{ statusInfo }}</p>
 </div>
